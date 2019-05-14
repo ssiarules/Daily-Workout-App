@@ -26,5 +26,5 @@ class PostsController < ApplicationController
             redirect '/posts'
         end
     end 
-
+ end 
 end 
