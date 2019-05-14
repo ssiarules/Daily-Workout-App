@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     get '/posts/new' do 
         #checking if they are logged in
         if !logged_in?
-            redirect "/login" #redirecting them to the login page if they aren't
+            redirect '/login' #redirecting them to the login page if they aren't
         else  
             "A new post form" #rendering if they are
         end
