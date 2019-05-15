@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 
     get '/posts' do
         #"You are logged in as #{session[:email]}"
-        "You're Logged In!"
+        erb :"users/user_profile.html"
     end 
 
     get '/posts/new' do 
