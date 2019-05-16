@@ -1,6 +1,5 @@
-<h1>Signup</h1>
-<h2> Create your workout of th day! 
-</h2>
+<h1>Signup and Create your workout of th day! </h1>
+
 
 <% "Must include email and password" if @user && @user.errors.any? %>
 
@@ -13,6 +12,20 @@
     <input type="checkbox" name="ABS" value="ABS">ABS<br>
     <input type="checkbox" name="Shoulder Press" value="Shoulder Press">Shoulder Press<br>
   </p>
+
+<hr>
+<form action="/signup" method="POST">
+<input type="text" class="form-control input-sm chat-input" name="username" placeholder="Username:" />
+</br>
+<input type="email" class="form-control input-sm chat-input" name="email" placeholder="Email:">
+</br>
+<input type="password" class="form-control input-sm chat-input" name="password" placeholder="Password:">
+</br>
+
+<div class="wrapper">
+  <span class="group-btn">
+  <input type="submit" value="Sign Up" class="btn btn-primary btn-md">
+</div>
 
 
 

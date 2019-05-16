@@ -1,0 +1,5 @@
+Create new migration 
+rake db:create_migration NAME=create_users
+
+Delete migration
+rake db:migrate:drop VERSION="20190512064649"
