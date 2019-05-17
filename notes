@@ -1,5 +1,9 @@
 Create new migration 
-rake db:create_migration NAME=create_users
+rake db:create_migration NAME=create_workouts
+
+Migrate the database
+rake db:migrate
 
 Delete migration
 rake db:migrate:drop VERSION="20190512064649"
+

@@ -1,9 +1,12 @@
 <h1>Signup and Create your workout of th day! </h1>
 
 
-<% "Must include email and password" if @user && @user.errors.any? %>
+<h3><% if flash.has?(:message) %>
+<%= flash[:message] %>
+<% end %>
+</h3>
 
-<form action="/users" method="POST">
+<form action="/signup" method="POST">
    
   <p>
       <h3>Workout Of The Day!:</h3>
@@ -26,9 +29,5 @@
   <span class="group-btn">
   <input type="submit" value="Sign Up" class="btn btn-primary btn-md">
 </div>
-
-
-
-  <input type="submit" />
 
   </form>

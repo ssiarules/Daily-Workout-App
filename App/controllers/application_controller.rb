@@ -1,13 +1,28 @@
+require './config/environment'
+
+
 class ApplicationController < Sinatra::Base 
 
     configure do 
         set :public_folder, 'public'
         set :views, 'app/views'
         enable :sessions #this will enable the browser with a cookie 
-            set :session_secret, "auth_demo_lv "
+            set :session_secret, "super_secret "
+    end 
+
+    before do
+        pass if ["login", "signup", nil].include? request.path_info.split('/')[1]
+        if !logged_in?
+          redirect '/'
+        end
+     end
+ 
+     get '/' do 
+        erb :"users/homepage"
     end 
 
 
+        
     helpers do 
 
         def logged_in? 
@@ -15,28 +30,24 @@ class ApplicationController < Sinatra::Base
         end 
 
         def current_user
-            @current_user ||= User.find_by(session[:email]) if session [:email]
+            @current_user ||= User.find(session[:user_id]) if session [:user_id]
         end 
-
-        def login(email, password)
+        
+        #def login(email, password)
             #check if a user with this email actually exist 
             #if so, set the session 
-            user = User.find_by(:email => email)
-            if user && user.authenticate(password) #if I find a user has an email and  I can authenticate that user with their password than log them in.
-                session[:email] = user.email 
-            else  
-                redirect '/login'
-            end 
+           # user = User.find_by(:email => email)
+            #if user && user.authenticate(password) #if I find a user has an email and  I can authenticate that user with their password than log them in.
+                #session[:email] = user.email 
+           # else  
+               # redirect '/login'
+            #end 
             #otherwise
             #return false or redirect 'login'
             #is the user who they clain to be
-        end 
+        #end
+         
 
-        def logout!
-            session.clear
-            "You're Logged out"
-            redirect '/login'
-        end 
+        
     end 
-
-end 
+end  

@@ -15,3 +15,11 @@ gem 'require_all'  #helps load dependencies
 gem 'shotgun'
 gem 'sinatra-redirect-with-flash'
 gem 'bcrypt', '~> 3.1.7'
+gem 'rack-flash3'
+
+group :test do
+  gem 'rspec'
+  gem 'capybara'
+  gem 'rack-test'
+  gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
+end
