@@ -4,7 +4,6 @@
 <%= flash[:message] %>
 <% end %></h1>
 
-<br>
 
 <h1>My Workouts</h1>
 
@@ -12,17 +11,14 @@
 <table class="table table-striped custab">
 <thead>
 <tr>
-<th><h3>Workouts</h3></th>
-<th class="text-center"><h3> Action </h3></th>
-</tr>
-</thead>
+
 <% @workouts.each do |workout| %>
 <tr>
 <td>
 <h3><a  href="/workouts/<%=workout.id%>"><%= workout.workout %></a></h3>
 </td>
 
-<td class="text-center"><a class='btn btn-info btn-xs' href="/workouts/<%=workout.id%>/edit"><span class="glyphicon glyphicon-edit"></span>  Edit </a>
+<td class="text-center"><a class='btn btn-info btn-xs' href="/workouts/<%=workout.id%>/edit"><span class="glyphicon glyphicon-edit"></span>  Edit </a> <br>
 
 <form action="/workouts/<%= workout.id %>/delete" method="post">
 <input id="hidden" type="hidden" name="_method" value="delete">
