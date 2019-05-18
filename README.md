@@ -1,1 +1,1 @@
-# Sinatra-Fitness-App
+# Daily Workout App
