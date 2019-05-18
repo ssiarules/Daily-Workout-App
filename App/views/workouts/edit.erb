@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+
+<h1><b> Edit <%= @workout.workout %> </b></h1>
+<hr>
+<form action="/workouts/<%=@workout.id%>" method="POST">
+<input id="hidden" type="hidden" name="_method" value="patch">
+
+<input type="text" class="form-control input-sm chat-input"name="workout" value="<%= @workout.workout%>" />
+</br>
+
+<div class="wrapper">
+<span class="group-btn">
+<input id= "item" type="submit" value="Submit Changes" class="btn btn-primary btn-md"/>
+</span>
+</div>

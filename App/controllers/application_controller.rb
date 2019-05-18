@@ -26,28 +26,12 @@ class ApplicationController < Sinatra::Base
     helpers do 
 
         def logged_in? 
-            !!current_user #double negation - takes an object and converts it from its actual value and it cast it into just a binary value of true or false. 
+            !!session[:user_id]  #double negation - takes an object and converts it from its actual value and it cast it into just a binary value of true or false. 
         end 
 
         def current_user
-            @current_user ||= User.find(session[:user_id]) if session [:user_id]
-        end 
-        
-        #def login(email, password)
-            #check if a user with this email actually exist 
-            #if so, set the session 
-           # user = User.find_by(:email => email)
-            #if user && user.authenticate(password) #if I find a user has an email and  I can authenticate that user with their password than log them in.
-                #session[:email] = user.email 
-           # else  
-               # redirect '/login'
-            #end 
-            #otherwise
-            #return false or redirect 'login'
-            #is the user who they clain to be
-        #end
-         
-
+            User.find_by_id(session[:user_id]) 
+        end
         
     end 
 end  

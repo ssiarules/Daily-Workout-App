@@ -1,1 +1,46 @@
+<!DOCTYPE html>
+
+<h1><% if flash.has?(:message) %>
+<%= flash[:message] %>
+<% end %></h1>
+
+<br>
+
 <h1>My Workouts</h1>
+
+<div class="list-group-workout">
+<table class="table table-striped custab">
+<thead>
+<tr>
+<th><h3>Workouts</h3></th>
+<th class="text-center"><h3> Action </h3></th>
+</tr>
+</thead>
+<% @workouts.each do |workout| %>
+<tr>
+<td>
+<h3><a  href="/workouts/<%=workout.id%>"><%= workout.workout %></a></h3>
+</td>
+
+<td class="text-center"><a class='btn btn-info btn-xs' href="/workouts/<%=workout.id%>/edit"><span class="glyphicon glyphicon-edit"></span>  Edit </a>
+
+<form action="/workouts/<%= workout.id %>/delete" method="post">
+<input id="hidden" type="hidden" name="_method" value="delete">
+<input type="submit" value="Delete" name="delete" class="btn btn-danger btn-xs">
+</form>
+</td>
+</tr>
+<%end%>
+</div>
+</table>
+</div>
+<br>
+<br>
+
+<a href="/new" class="btn btn-lg btn-primary btn-block btn-signin">New Workout</a><br>
+<a href="/logout" class="btn btn-lg btn-primary btn-block btn-signin">Log Out</a>
+
+</div>
+</div>
+</div>
+</div>

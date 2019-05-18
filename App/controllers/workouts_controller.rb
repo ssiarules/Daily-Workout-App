@@ -19,7 +19,7 @@ class WorkoutsController < ApplicationController
       end
       
     get '/workouts/:id/edit' do
-        @workout= Item.find(params[:id])
+        @workout= Workout.find(params[:id])
         if current_user.workouts.include?(@workout)
           erb :'/workouts/edit'
         else
@@ -29,8 +29,8 @@ class WorkoutsController < ApplicationController
     
       patch "/workouts/:id" do
         @workout = current_user.workouts.find(params[:id])
-        if params[:item] != ""
-          @workout.update(item: params[:item])
+        if params[:workout] != ""
+          @workout.update(workout: params[:workout])
           redirect "/workouts/#{@workout.id}"
         else
           redirect "/workouts/#{@workout.id}/edit"
@@ -49,25 +49,6 @@ class WorkoutsController < ApplicationController
     end 
     
     
-    #get '/posts/new' do 
-        #checking if they are logged in
-       # if !logged_in?
-           # redirect '/login' #redirecting them to the login page if they aren't
-        #else  
-            #"A new post form" #rendering if they are
-        #end
-   # end 
-
-    #get '/workouts/:id/edit' do 
-        #checking if they are logged in
-       # if !logged_in?
-            #redirect "/login" #redirecting them to the login page if they aren't
-        #else  
-            #how do I find the post that only the author user is allowed to edit.
-          # if  post = current_user.posts.find(params[:id])
-            #"An edit post form #{current_user.id} is editing #{post.id}" #rendering if they are
-           #else 
-           # redirect '/posts'
-        #end
-    #end 
+    
+   
  

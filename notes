@@ -7,3 +7,4 @@ rake db:migrate
 Delete migration
 rake db:migrate:drop VERSION="20190512064649"
 
+rake db:migrate:down VERSION=20190517042319

@@ -1,4 +1,4 @@
-<h1>Signup and Create your workout of th day! </h1>
+<h1>Signup! </h1>
 
 
 <h3><% if flash.has?(:message) %>
@@ -6,17 +6,7 @@
 <% end %>
 </h3>
 
-<form action="/signup" method="POST">
-   
-  <p>
-      <h3>Workout Of The Day!:</h3>
-    <input type="checkbox" name="Push Ups" value="Push Ups"> Push Ups<br>
-    <input type="checkbox" name="Squats" value="Squats">Squats<br>
-    <input type="checkbox" name="ABS" value="ABS">ABS<br>
-    <input type="checkbox" name="Shoulder Press" value="Shoulder Press">Shoulder Press<br>
-  </p>
 
-<hr>
 <form action="/signup" method="POST">
 <input type="text" class="form-control input-sm chat-input" name="username" placeholder="Username:" />
 </br>
