@@ -2,6 +2,11 @@ require 'rack-flash'
 
 
 class UsersController < ApplicationController
+
+  configure do
+    enable :sessions
+    set :session_secret, "super_secret "
+  end
     
       use Rack::Flash
       

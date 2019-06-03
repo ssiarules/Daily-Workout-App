@@ -1,11 +1,16 @@
 class WorkoutsController < ApplicationController
 
+  configure do
+    enable :sessions
+    set :session_secret, "super_secret "
+  end
+
     get '/new' do
         erb :"workouts/new"
     end 
 
     post '/workouts' do
-        if params["workout"] != ""
+        if params["workout"] != "" #The not-equal-to operator (!=) returns true if the operands do not have the same value; otherwise, it returns false.
           @workout = current_user.workouts.create(workout: params[:workout])
           redirect '/workout_list'
         else
